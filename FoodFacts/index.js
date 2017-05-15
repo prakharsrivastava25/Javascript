@@ -134,8 +134,18 @@ rl.on('close', () => {
 
   for(let i=0;i<country.length;i++)
   {
-    jsonDocs1.push({country: country[i], salt: asalt[i], sugar: asugar[i]});
 
+    jsonDocs1.push({country: country[i], salt: asalt[i], sugar: asugar[i]});
+    console.log(jsonDocs1);
+    //sorting according to sugar + sugar
+    // console.log(Array.sort(jsonDocs1));
+    jsonDocs1.sort(function(a, b){
+      console.log(a);
+      console.log(b);
+      console.log("a.salt+a.sugar", parseFloat(a.salt)+parseFloat(a.sugar));
+      console.log("b.salt+b.sugar", parseFloat(b.salt)+parseFloat(b.sugar));
+  return (parseFloat(a.salt)+parseFloat(a.sugar)) < (parseFloat(b.salt)+parseFloat(b.sugar));
+});
   }
   let jsonEuropeAll=[];
   let nfatsum=0;
